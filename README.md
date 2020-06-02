@@ -4,7 +4,7 @@
 
 Minecraft WorldEdit Advanced Edition for Minecraft Education Edition.
 **You must have Code Connection installed on Minecraft Education Edition or have the version of Minecraft Education Edition bundled with the MakeCode component.**
-Project Link: https://makecode.com/_98jioxazaDpt
+Project Link: https://makecode.com/_XMVi725V5f64
 
 Installation:(This is for the MakeCode component bundled with the Minecraft Education Edition)
 1. Hit **C** on your keyboard then select **MakeCode** if you are the first time to use this component.
