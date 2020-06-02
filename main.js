@@ -96,6 +96,51 @@ function Abuild_Core_Advance (firstPosition: Position, secondPosition: Position)
     blocks.place(AIR, targercloneblock)
     player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eAgent has finished building")
 }
+
+function Abuild_Core_Random(randomSlot: number, firstPosition: Position, secondPosition: Position) {
+    abuildcoreymin = Math.min(firstPosition.getValue(Axis.Y), secondPosition.getValue(Axis.Y))
+    abuildcorexmin = Math.min(firstPosition.getValue(Axis.X), secondPosition.getValue(Axis.X))
+    abuildcorezmin = Math.min(firstPosition.getValue(Axis.Z), secondPosition.getValue(Axis.Z))
+    abuildcoreymax = Math.max(firstPosition.getValue(Axis.Y), secondPosition.getValue(Axis.Y))
+    abuildcorexmax = Math.max(firstPosition.getValue(Axis.X), secondPosition.getValue(Axis.X))
+    abuildcorezmax = Math.max(firstPosition.getValue(Axis.Z), secondPosition.getValue(Axis.Z))
+    targercloneblock = world(agent.getPosition().getValue(Axis.X), agent.getPosition().getValue(Axis.Y) + 1, agent.getPosition().getValue(Axis.Z))
+    abuildcorey = abuildcorexmin
+    abuildcorex = abuildcorexmin
+    abuildcorez = abuildcorezmin
+    for (let y = abuildcoreymin; y < abuildcoreymin + Math.abs(abuildcoreymax - abuildcoreymin) + 1; y++) {
+        for (let x = abuildcorexmin; x < abuildcorexmin + Math.abs(abuildcorexmax - abuildcorexmin) + 1; x++) {
+            for (let z = abuildcorezmin; z < abuildcorezmin + Math.abs(abuildcorezmax - abuildcorezmin) + 1; z++) {
+                agent.setSlot(Math.randomRange(1, randomSlot))
+                blocks.place(AIR, targercloneblock)
+                agent.place(UP)
+                blocks.clone(
+                targercloneblock,
+                targercloneblock,
+                world(x, y, z),
+                CloneMask.Replace,
+                CloneMode.Normal
+                )
+                abuildcorez += 1
+            }
+            abuildcorex += 1
+        }
+        abuildcorey += 1
+    }
+    blocks.place(AIR, targercloneblock)
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eAgent has finished building")
+}
+
+player.onChat("abuildrnd", function (randomSlot) {
+    if (randomSlot >= 1) {
+        player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eAgent is currently building blocks placed from agent's slot 1 to your input number with the advanced building method")
+        player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §ePlease make sure there is one block of headroom for this method to work.")
+        Abuild_Core_Random(randomSlot, firstPosition, secondPosition)
+    } else if (randomSlot < 1) {
+        player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eYour input number is less than 1, random build requires number larger than 1.")
+    }
+})
+
 player.onChat("registerogblock", function (ogblock, ogblockid) {
     if (isExperimentalSettingsEnabled) {
         ogblocks = [ogblock, ogblockid]
@@ -132,12 +177,6 @@ player.onItemInteracted(GOLDEN_SWORD, function () {
             setIndex = 0
         }
     }
-})
-loops.forever(function () {
-    gameplay.setGameMode(
-    CREATIVE,
-    mobs.target(ALL_PLAYERS)
-    )
 })
 player.onChat("givebarrier", function () {
     player.execute(
@@ -197,10 +236,12 @@ player.onChat("build", function (block, blockid) {
     FillOperation.Replace
     )
 })
-
+player.onChat("atp", function () {
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eTeleported Agent to Player")
+    agent.teleportToPlayer()
+})
 player.onChat("aclear", function () {
-    humanReadableOutput = "§5Minecraft WorldEdit Advanced Edition: §eCleared Agent's Inventory"
-    player.tell(mobs.target(LOCAL_PLAYER), humanReadableOutput)
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eCleared Agent's Slot 1")
     agent.setItem(AIR, 1, 1)
 })
 let isExperimentalSettingsEnabled = false
