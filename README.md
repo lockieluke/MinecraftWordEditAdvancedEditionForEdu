@@ -4,7 +4,7 @@
 
 Minecraft WorldEdit Advanced Edition for Minecraft Education Edition.
 **You must have Code Connection installed on Minecraft Education Edition or have the version of Minecraft Education Edition bundled with the MakeCode component.**
-Project Link: https://makecode.com/_XMVi725V5f64
+Project Link: https://makecode.com/_YYhHsf3UKgcw
 
 Installation:(This is for the MakeCode component bundled with the Minecraft Education Edition)
 1. Hit **C** on your keyboard then select **MakeCode** if you are the first time to use this component.
@@ -48,6 +48,8 @@ Agent Build Commands(Still in beta):
 block, it means it can identify the color of the wool and things like that.  But this function may appear to be slower than the
 
 "abuildfast" build method.)
+
+"abuildrnd" + max slot number This function is the same as "abuildadv" but this cycles through the random agent's slot between 1 to (max slot number) You can build floor with random blocks with this.
 
 "aclear" Clear Agent's inventory
 
