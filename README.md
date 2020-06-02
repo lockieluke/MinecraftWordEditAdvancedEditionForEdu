@@ -49,6 +49,8 @@ block, it means it can identify the color of the wool and things like that.  But
 
 "abuildfast" build method.)
 
+"aclear" Clear Agent's inventory
+
 "exp" Enable the experimental functions or settings
 
 Rules:
