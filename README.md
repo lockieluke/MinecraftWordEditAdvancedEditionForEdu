@@ -4,7 +4,7 @@
 
 Minecraft WorldEdit Advanced Edition for Minecraft Education Edition.
 **You must have Code Connection installed on Minecraft Education Edition or have the version of Minecraft Education Edition bundled with the MakeCode component.**
-Project Link: https://makecode.com/_YYhHsf3UKgcw
+Project Link: https://makecode.com/_0g1e9m2qg1Xk
 
 Installation:(This is for the MakeCode component bundled with the Minecraft Education Edition)
 1. Hit **C** on your keyboard then select **MakeCode** if you are the first time to use this component.
@@ -54,6 +54,12 @@ block, it means it can identify the color of the wool and things like that.  But
 "aclear" Clear Agent's inventory
 
 "exp" Enable the experimental functions or settings
+
+"copy" Copy the selected region(building) to your clipboard(Please select the region using the golden sword or set1/set2 commands)
+
+"paste" Paste the building in your clipboard to the current position
+
+"move" Move the selected region(building) to your clipboard(Please select the region using the golden sword or set1/set2 commands)
 
 Rules:
 Please do not switch this program to block view or python view as it will break the program
