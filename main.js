@@ -17,6 +17,8 @@ player.onChat("set1", function () {
     )
     player.tell(mobs.target(LOCAL_PLAYER), humanReadableOutput)
     firstPosition = player.position()
+    builder.teleportTo(player.position())
+    builder.mark()
 })
 player.onChat("abuildfast", function () {
     agent.setSlot(1)
@@ -165,6 +167,7 @@ player.onItemInteracted(GOLDEN_SWORD, function () {
         "scoreboard players set @s FirstPosition " + player.position()
         )
         secondPosition = player.position()
+        builder.teleportTo(player.position())
         setIndex = 1
     } else {
         if (setIndex == 1) {
@@ -175,6 +178,8 @@ player.onItemInteracted(GOLDEN_SWORD, function () {
             )
             firstPosition = player.position()
             setIndex = 0
+            builder.teleportTo(player.position())
+            builder.mark()
         }
     }
 })
@@ -211,6 +216,7 @@ player.onChat("set2", function () {
     )
     player.tell(mobs.target(LOCAL_PLAYER), humanReadableOutput)
     secondPosition = player.position()
+    builder.teleportTo(player.position())
 })
 function Abuild_Fast_Core (firstPosition: Position, secondPosition: Position) {
     blocks.fill(
@@ -243,6 +249,25 @@ player.onChat("atp", function () {
 player.onChat("aclear", function () {
     player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eCleared Agent's Slot 1")
     agent.setItem(AIR, 1, 1)
+})
+player.onChat("copy", function () {
+    builder.copy()
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eCopied the selected region to your clipboard")
+})
+
+player.onChat("paste", function () {
+    builder.teleportTo(player.position())
+    builder.paste()
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §ePasted the building in your clipboard to your current position")
+})
+
+player.onChat("move", function () {
+    builder.copy()
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eCopied the selected region to your clipboard")
+    builder.teleportTo(player.position())
+    builder.paste()
+    player.tell(mobs.target(LOCAL_PLAYER), "§5Minecraft WorldEdit Advanced Edition: §eMoved the building to your current position")
+    blocks.fill(AIR, firstPosition, secondPosition)
 })
 let isExperimentalSettingsEnabled = false
 let abuildcorez = 0
