@@ -2,8 +2,10 @@
 
 # Probably the first world edit for Bedrock that supports the building method of not requiring you to enter the block ids and block data-ids
 
-Minecraft WorldEdit Advanced Edition for Minecraft Education Edition.
-Project Link: https://makecode.com/_0g1e9m2qg1Xk
+Minecraft WorldEdit Advanced Edition for Minecraft Education Edition Version 1.4
+Project Link: https://makecode.com/_EYo7jaWXbH7v
+
+Update Log: Delete Function(No more `build 0`!!!), Prompt after action finished(oooh finally, won't selected the wrong positions again), Duplicate(Simplified the copy and paste functions), Paste with directions spcified(No more wrong direction when pasting)
 
 **The tutorials and all commands overview have been moved to the wiki page of this GitHub repo**
 
