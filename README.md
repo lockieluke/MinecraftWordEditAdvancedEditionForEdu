@@ -11,4 +11,4 @@ Update Log: Delete Function(No more `build 0`!!!), Prompt after action finished(
 
 _For the guide on how to install the Minecraft WordEdit Advanced Edition For Minecraft Education Edition to your Minecraft, please see the Installation guide in the wiki page_
 
-### Even Minecraft Bedrock on Windows 10 is supported, look at the installtion guide for more info.
+### Even Minecraft Bedrock on Windows 10 is supported, look at the installation guide for more info.
